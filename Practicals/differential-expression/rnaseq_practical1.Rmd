@@ -155,6 +155,10 @@ library(ggplot2)
 library(ggsci)
 library(ggrepel)
 
+# Temporary fix for:
+#   invalid class "DESeqDataSet" object: superclass "ExpData" not defined in the environment of the object's class
+# setClassUnion("ExpData", c("matrix", "SummarizedExperiment"))
+
 dds_unstim <- DESeqDataSetFromMatrix(countData = unstim_countTable,
                               colData = unstim_colData,
                               design = ~ type+sample)
